@@ -1,0 +1,29 @@
+version: "1"
+services:
+  php_service:
+    build: .
+    volumes:
+      - "./:/var/www/html/"
+    ports:
+      - 80:80
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_DATABASE=php_docker
+      - MYSQL_USER=Kiyoonewton
+      - MYSQL_PASSWORD=olaoluwa
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    volumes:
+      - myData:/var/lib/mysql
+volumes:
+  php_service:
+  myData:
