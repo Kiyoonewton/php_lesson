@@ -1,3 +1,4 @@
+<?php include "./incl_fuc/db_connect.php"; ?>
 <?php include "./incl_fuc/functions.php"; ?>
 
 <!DOCTYPE html>
