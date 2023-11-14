@@ -1,9 +1,5 @@
-<?php include "incl_fuc/db_connect.php";
-$query = "SELECT * FROM users";
-$result = mysqli_query($connection, $query);
-if (!$result) {
-    die('Query failed' . mysqli_error($connection));
-};
+<?php include "incl_fuc/functions.php";
+$result = getUsers();
 ?>
 
 <!DOCTYPE html>
