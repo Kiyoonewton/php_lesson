@@ -1,5 +1,5 @@
 <?php
-include "includes/visibilityClass.inc.php"
+include "includes/static.inc.php"
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +13,10 @@ include "includes/visibilityClass.inc.php"
 
 <body>
     <?php
-    $person01 = new Person("isaac", "red", "23");
-    echo $person01->getName();
+    echo Person::$drinkingAge;
+    echo Person::setDrinkageAge(21);
+    echo Person::$drinkingAge;
+
     ?>
 </body>
 
