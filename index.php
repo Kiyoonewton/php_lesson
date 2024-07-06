@@ -1,5 +1,5 @@
 <?php
-include "includes/static.inc.php"
+include "includes/autoloader.inc.php"
 ?>
 
 <!DOCTYPE html>
@@ -13,9 +13,12 @@ include "includes/static.inc.php"
 
 <body>
     <?php
-    echo Person::$drinkingAge;
-    echo Person::setDrinkageAge(21);
-    echo Person::$drinkingAge;
+    $person = new Person("isaac", "blue", 21);
+    echo $person->getName();
+
+    echo Static_class::$drinkingAge;
+    echo Static_class::setDrinkageAge(21);
+    echo Static_class::$drinkingAge;
 
     ?>
 </body>
