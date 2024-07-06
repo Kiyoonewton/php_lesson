@@ -11,6 +11,10 @@ function myAutoLoader($className)
         $path = 'classes/';
     }
 
+    if (strpos($url, '/')) {
+        $className = '/' . $className;
+    };
+
     $extension = '.class.php';
 
     require_once $path . $className . $extension;
