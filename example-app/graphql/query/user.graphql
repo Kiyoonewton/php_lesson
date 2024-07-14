@@ -1,0 +1,22 @@
+type Query {
+    users: [User!]! @paginate
+    user(id: ID @eq): User @find
+}
+
+type User {
+    id: ID
+    name: String
+    email_verified_at: String
+    email: String
+    password: String
+    posts: [Post]! @hasMany
+}
+
+type Post {
+    id: ID
+    content: String
+    excerpt: String
+    slug: String
+    title: String
+    author: User! @belongsTo
+}

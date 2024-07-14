@@ -1,0 +1,13 @@
+# extend type Query {
+#     posts: [Post!]! @paginate
+#     post(id: ID @eq): Post @find
+# }
+
+type Post {
+    id: ID
+    content: String
+    excerpt: String
+    slug: String
+    title: String
+    author: User! @belongsTo
+}
