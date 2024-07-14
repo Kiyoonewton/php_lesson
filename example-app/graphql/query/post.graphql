@@ -1,7 +1,7 @@
-# extend type Query {
-#     posts: [Post!]! @paginate
-#     post(id: ID @eq): Post @find
-# }
+extend type Query {
+    posts: [Post!]! @paginate
+    post(id: ID @eq): Post @find
+}
 
 type Post {
     id: ID
