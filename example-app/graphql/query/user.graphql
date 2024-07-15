@@ -1,6 +1,7 @@
 type Query {
     users: [User!]! @paginate
     user(id: ID @eq): User @find
+    me: User! @guard @auth
 }
 
 type User {

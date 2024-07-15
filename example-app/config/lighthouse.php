@@ -29,7 +29,7 @@ return [
          */
         'middleware' => [
             // Ensures the request is not vulnerable to cross-site request forgery.
-            // Nuwave\Lighthouse\Http\Middleware\EnsureXHR::class,
+            Nuwave\Lighthouse\Http\Middleware\EnsureXHR::class,
 
             // Always set the `Accept: application/json` header.
             Nuwave\Lighthouse\Http\Middleware\AcceptJson::class,
@@ -37,6 +37,9 @@ return [
             // Logs in a user if they are authenticated. In contrast to Laravel's 'auth'
             // middleware, this delegates auth and permission checks to the field level.
             Nuwave\Lighthouse\Http\Middleware\AttemptAuthentication::class,
+
+            //sanctum
+            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
 
             // Logs every incoming GraphQL query.
             // Nuwave\Lighthouse\Http\Middleware\LogGraphQLQueries::class,
@@ -61,7 +64,7 @@ return [
     |
     */
 
-    'guards' => null,
+    'guards' => ['sanctum'],
 
     /*
     |--------------------------------------------------------------------------
