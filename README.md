@@ -64,3 +64,23 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+-sail mysql -uroot -p 
+this will take you to the root of mysql in sail if it exist
+
+in this instance 
+Command "mysql" is not defined.
+do this 
+-docker ps
+-docker exec -it <container_name_or_id> bash
+-mysql -u root -p
+root password is always nothing
+-ALTER USER 'sail'@'%' IDENTIFIED BY 'password';
+-FLUSH PRIVILEGES;
+-EXIT;
+
+then move to doing this
+-sail artisan config:clear
+-sail artisan config:cache
+-sail artisan migrate
+
