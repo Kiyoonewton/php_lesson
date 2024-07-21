@@ -17,21 +17,28 @@ services:
             XDEBUG_MODE: "${SAIL_XDEBUG_MODE:-off}"
             XDEBUG_CONFIG: "${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}"
             IGNITION_LOCAL_SITES_PATH: "${PWD}"
+            DB_CONNECTION: "${DB_CONNECTION:-mongodb}"
+            DB_URI: "${DB_URI}"
+            MDB_DATABASE: "${MDB_DATABASE}"
         volumes:
             - ".:/var/www/html"
         networks:
             - sail
         depends_on:
+            - mongodb
             - mysql
-    mongo:
-        image: 'mongo:6.0'
+    mongodb:
+        image: 'mongo:latest'
+        container_name: mongodb
         restart: always
         environment:
             MONGO_INITDB_ROOT_USERNAME: '${MDB_USERNAME}'
             MONGO_INITDB_ROOT_PASSWORD: '${MDB_PASSWORD}'
             MONGO_INITDB_DATABASE: '${MDB_DATABASE}'
+        ports:
+            - "27017:27017"
         volumes:
-            - 'sailmongo:/data/db'
+            - './mongo-data:/data/db'
         networks:
             - sail
     mysql:
