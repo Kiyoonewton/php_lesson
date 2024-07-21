@@ -23,6 +23,17 @@ services:
             - sail
         depends_on:
             - mysql
+    mongo:
+        image: 'mongo:6.0'
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: '${MDB_USERNAME}'
+            MONGO_INITDB_ROOT_PASSWORD: '${MDB_PASSWORD}'
+            MONGO_INITDB_DATABASE: '${MDB_DATABASE}'
+        volumes:
+            - 'sailmongo:/data/db'
+        networks:
+            - sail
     mysql:
         image: "mysql/mysql-server:8.0"
         ports:
