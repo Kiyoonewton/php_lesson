@@ -12,6 +12,9 @@ return [
     | other UI elements where an application name needs to be displayed.
     |
     */
+    // 'providers' => [
+    //     MongoDB\Laravel\MongoDBServiceProvider::class
+    // ],
 
     'name' => env('APP_NAME', 'Laravel'),
 

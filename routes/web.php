@@ -7,6 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/browse_movies/', [MovieController::class, 'show']);
+// Route::get('/browse_movies/', [MovieController::class, 'show']);
 
 
+Route::get('/info', function () {
+    phpinfo();
+});
