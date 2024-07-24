@@ -8,10 +8,13 @@ use Illuminate\Support\Str;
 
 class User extends Model
 {
-    Use HasFactory;
+    use HasFactory;
     protected $connection = 'mongodb';
     protected $collection = 'users';
-    protected $fillable = ['uuid','name', 'email'];
+    protected $primaryKey = 'uuid';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $fillable = ['uuid', 'name', 'email'];
 
     protected static function boot()
     {
