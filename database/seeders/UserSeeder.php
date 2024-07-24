@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
 
     public function run(): void
     {
-        User::create(['uuid' => Str::uuid()->toString(), 'name' => 'John Doe', 'email' => 'john@example.com']);
-        User::create(['uuid' => Str::uuid()->toString(),'name' => 'Jane Doe', 'email' => 'jane@example.com']);
+        User::create(['name' => 'John Doe', 'email' => 'john@example.com']);
+        User::create(['name' => 'Jane Doe', 'email' => 'jane@example.com']);
     }
 }

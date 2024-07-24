@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::connection('mongodb')->create('users', function ($collection) {
-            $collection->unique('uuid');
+            $collection->index('uuid', ['unique' => true]);
         });
     }
 
