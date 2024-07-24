@@ -10,5 +10,5 @@ class User extends Model
     Use HasFactory;
     protected $connection = 'mongodb';
     protected $collection = 'users';
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'email'];
 }
